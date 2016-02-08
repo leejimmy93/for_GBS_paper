@@ -2,11 +2,14 @@ setwd('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/')
 
 # import data 
 list.files()
-firstSNP <- read.delim('/Users/ruijuanli/Desktop/61822.txt')
-secondSNP <- read.delim('/Users/ruijuanli/Desktop/18571.txt')
-thirdSNP <- read.delim('/Users/ruijuanli/Desktop/6224.txt')
+firstSNP <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/61822.txt')
+secondSNP <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/18571.txt')
+thirdSNP <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/6224.txt')
 head(firstSNP)
 
+###################
+# call rate, MAF, & heterozygosity rate for each accession at each step of SNP filtering
+###################
 # MAF
 firstSNP.MAF <- firstSNP$Minor.Allele.Frequency
 secondSNP.MAF<- secondSNP$Minor.Allele.Frequency
@@ -37,4 +40,25 @@ hist(thirdSNP.missingrate)
 hist(firstSNP.heterozygosity)
 hist(secondSNP.heterozygosity)
 hist(thirdSNP.heterozygosity)
-help()
+
+######################
+# call rate, MAF, & heterozygosity rate for each accession for accessions in each 
+# cluster & sub-cluster
+######################
+
+###
+# 6430 & 5283 SNPs for cluster 1 and 2, also accession list for all sub-clusters
+##########
+
+
+
+
+
+
+
+
+
+
+
+
+
