@@ -45,10 +45,24 @@ hist(thirdSNP.heterozygosity)
 # call rate, MAF, & heterozygosity rate for each accession for accessions in each 
 # cluster & sub-cluster
 ######################
+# import data
+SNP_1st_cluster <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/302_6430.txt')
+SNP_2nd_cluster <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/64_5283.txt')
+two_hundred_and_three_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/203_accessions')
+seventy_seven_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/77_accessions')
+ten_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/10_accessions')
+forty_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/40_accessions')
+six_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/6_accessions')
 
-###
-# 6430 & 5283 SNPs for cluster 1 and 2, also accession list for all sub-clusters
-##########
+# clean up colname
+colnames(SNP_1st_cluster) <- sub(".C6G7TANXX.1.1","",colnames(SNP_1st_cluster),fixed = TRUE)
+colnames(SNP_1st_cluster) <- sub(".C6G7TANXX.2.1","",colnames(SNP_1st_cluster),fixed = TRUE)
+colnames(SNP_1st_cluster) <- sub(".C6G7TANXX.3.1","",colnames(SNP_1st_cluster),fixed = TRUE)
+colnames(SNP_1st_cluster) <- sub(".C6G7TANXX.4.1","",colnames(SNP_1st_cluster),fixed = TRUE)
+
+colnames(SNP_1st_cluster)
+seventy_seven_accessions_SNP <- seventy_seven_accessions %in% colnames(SNP_1st_cluster)
+
 
 
 
