@@ -46,22 +46,78 @@ hist(thirdSNP.heterozygosity)
 # cluster & sub-cluster
 ######################
 # import data
-SNP_1st_cluster <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/302_6430.txt')
-SNP_2nd_cluster <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/64_5283.txt')
-two_hundred_and_three_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/203_accessions')
-seventy_seven_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/77_accessions')
-ten_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/10_accessions')
-forty_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/40_accessions')
-six_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/6_accessions')
+SNP_1st_cluster <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/6224_302.txt')
+SNP_2nd_cluster <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/6224_64.txt')
+two_hundred_and_three_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/203_6430.txt')
+seventy_seven_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/77_6430.txt')
+ten_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/10_5283.txt')
+forty_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/40_5283.txt')
+six_accessions <- read.delim('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/6_5283.txt')
 
-# clean up colname
-colnames(SNP_1st_cluster) <- sub(".C6G7TANXX.1.1","",colnames(SNP_1st_cluster),fixed = TRUE)
-colnames(SNP_1st_cluster) <- sub(".C6G7TANXX.2.1","",colnames(SNP_1st_cluster),fixed = TRUE)
-colnames(SNP_1st_cluster) <- sub(".C6G7TANXX.3.1","",colnames(SNP_1st_cluster),fixed = TRUE)
-colnames(SNP_1st_cluster) <- sub(".C6G7TANXX.4.1","",colnames(SNP_1st_cluster),fixed = TRUE)
+###################
+# call rate, MAF, & heterozygosity rate 
+###################
+# MAF
+SNP_1st_cluster.MAF <- SNP_1st_cluster$Minor.Allele.Frequency
+SNP_2nd_cluster.MAF <- SNP_2nd_cluster$Minor.Allele.Frequency
+two_hundred_and_three_accessions.MAF <- two_hundred_and_three_accessions$Minor.Allele.Frequency
+seventy_seven_accessions.MAF<- seventy_seven_accessions$Minor.Allele.Frequency
+ten_accessions.MAF<- ten_accessions$Minor.Allele.Frequency
+forty_accessions.MAF <- forty_accessions$Minor.Allele.Frequency
+six_accessions.MAF <- six_accessions$Minor.Allele.Frequency
 
-colnames(SNP_1st_cluster)
-seventy_seven_accessions_SNP <- seventy_seven_accessions %in% colnames(SNP_1st_cluster)
+summary(SNP_1st_cluster.MAF)
+summary(SNP_2nd_cluster.MAF)
+summary(two_hundred_and_three_accessions.MAF)
+summary(seventy_seven_accessions.MAF)
+summary(ten_accessions.MAF)
+summary(forty_accessions.MAF)
+summary(six_accessions.MAF)
+
+# missing rate
+SNP_1st_cluster.missingrate <- SNP_1st_cluster$Proportion.Missing
+SNP_2nd_cluster.missingrate <- SNP_2nd_cluster$Proportion.Missing
+two_hundred_and_three_accessions.missingrate <- two_hundred_and_three_accessions$Proportion.Missing
+seventy_seven_accessions.missingrate<- seventy_seven_accessions$Proportion.Missing
+ten_accessions.missingrate<- ten_accessions$Proportion.Missing
+forty_accessions.missingrate <- forty_accessions$Proportion.Missing
+six_accessions.missingrate <- six_accessions$Proportion.Missing
+
+# heterozygosity
+SNP_1st_cluster.heterozygosity <- SNP_1st_cluster$Proportion.Heterozygous
+SNP_2nd_cluster.heterozygosity <- SNP_2nd_cluster$Proportion.Heterozygous
+two_hundred_and_three_accessions.heterozygosity <- two_hundred_and_three_accessions$Proportion.Heterozygous
+seventy_seven_accessions.heterozygosity<- seventy_seven_accessions$Proportion.Heterozygous
+ten_accessions.heterozygosity<- ten_accessions$Proportion.Heterozygous
+forty_accessions.heterozygosity <- forty_accessions$Proportion.Heterozygous
+six_accessions.heterozygosity <- six_accessions$Proportion.Heterozygous
+
+# making plot
+hist(SNP_1st_cluster.MAF, xlab = 'MAF', ylab = 'Number of accessions', main = 'MAF of 6224_302 SNPs')
+hist(SNP_2nd_cluster.MAF, xlab = 'MAF', ylab = 'Number of accessions', main = 'MAF of 6224_64 SNPs')
+hist(two_hundred_and_three_accessions.MAF, xlab = 'MAF', ylab = 'Number of accessions', main = '6430_203')
+hist(seventy_seven_accessions.MAF, xlab = 'MAF', ylab = 'Number of accessions', main = '6430_77')
+hist(ten_accessions.MAF, xlab = 'MAF', ylab = 'Number of accessions', main = '10_5283')
+hist(forty_accessions.MAF, xlab = 'MAF', ylab = 'Number of accessions', main = '40_5283')
+hist(six_accessions.MAF, xlab = 'MAF', ylab = 'Number of accessions', main = '6_5283')
+
+hist(SNP_1st_cluster.missingrate)
+hist(SNP_2nd_cluster.missingrate)
+hist(two_hundred_and_three_accessions.missingrate)
+hist(seventy_seven_accessions.missingrate)
+hist(ten_accessions.missingrate)
+hist(forty_accessions.missingrate)
+hist(six_accessions.missingrate)
+
+hist(SNP_1st_cluster.heterozygosity)
+hist(SNP_2nd_cluster.heterozygosity)
+hist(two_hundred_and_three_accessions.heterozygosity)
+hist(seventy_seven_accessions.heterozygosity)
+hist(ten_accessions.heterozygosity)
+hist(forty_accessions.heterozygosity)
+hist(six_accessions.heterozygosity)
+
+
 
 
 
