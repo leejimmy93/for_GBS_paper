@@ -1,15 +1,14 @@
-setwd('/Users/ruijuanli/Desktop/revise/MAF_call_rate_heterozygosity/')
+setwd("/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exploration//")
 
 # load lib for figure
-library(devtools)
 library(rethinking)
 
 # import data 
 list.files()
-firstSNP <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/61822.txt')
-secondSNP <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/18571.txt')
-thirdSNP <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/MAF_call_rate_heterozygosity/raw_SNP_hapmap_data/6224.txt')
-mising_taxa_6224 <- read.delim("~/Desktop/GBS_manuscript/revise/6224_taxa.txt")
+firstSNP <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exploration//raw_SNP_hapmap_data/61822.txt')
+secondSNP <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exploration//raw_SNP_hapmap_data/18571.txt')
+thirdSNP <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exploration//raw_SNP_hapmap_data/6224.txt')
+mising_taxa_6224 <- read.delim("/Users/ruijuanli/Desktop/GBS_manuscript/revise/6224_taxa.txt")
 head(firstSNP)
 
 ###################
@@ -19,8 +18,6 @@ head(firstSNP)
 firstSNP.MAF <- firstSNP$Minor.Allele.Frequency
 secondSNP.MAF<- secondSNP$Minor.Allele.Frequency
 thirdSNP.MAF<- thirdSNP$Minor.Allele.Frequency
-density()
-help("density")
 summary(firstSNP.MAF)
 summary(secondSNP.MAF)
 summary(thirdSNP.MAF)
@@ -36,7 +33,6 @@ secondSNP.heterozygosity <- secondSNP$Proportion.Heterozygous
 thirdSNP.heterozygosity <- thirdSNP$Proportion.Heterozygous
 
 # making plot
-?density
 par(mfrow=c(2,2))
 dens(firstSNP.missingrate, ylim=c(0,20), col="black", xlab="missing rate at locus level", lwd=2, add = F)
 dens(secondSNP.missingrate, xlim=c(0, 1), add = TRUE, col="blue", lwd=2)
