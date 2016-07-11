@@ -16,7 +16,7 @@ source("http://zzlab.net/GAPIT/gapit_functions.txt")
 source("http://zzlab.net/GAPIT/emma.txt")
 
 # set wd & kinship analysis 
-setwd("~/Desktop/GBS_manuscript/revise/IBS/")
+setwd("~/Desktop/GBS_manuscript/revise/data_exploration/IBS/")
 myY=read.table("fake_genotype.txt", head=TRUE)
 myG=read.table("375_6224_clean_ID.hmp.txt", head=F)
 myGAPIT <- GAPIT(Y=myY, G=myG, Model.selection=TRUE, PCA.total=0, kinship.algorithm=c("EMMA"))
@@ -25,21 +25,25 @@ myGAPIT <- GAPIT(Y=myY, G=myG, Model.selection=TRUE, PCA.total=0, kinship.algori
 # import kinship matrix & get rownames 
 kinship.EMMA <- read.csv("GAPIT.Kin.EMMA.csv", header = F)
 rownames(kinship.EMMA) <- kinship.EMMA[1:375,1]
-ncol(kinship.EMMA)
+dim(kinship.EMMA)
 kinship.EMMA <- kinship.EMMA[, 2:376]
-ncol(kinship.EMMA)
+dim(kinship.EMMA)
 kinship.EMMA[1:10, 1:10]
 colnames(kinship.EMMA) <- rownames(kinship.EMMA)
 kinship.EMMA[1:10, 1:10]
 
-# How many pairs are above 0.95 kinship relationship? they are probably related.
-
-
-
-
+# How many pairs are above 0.95 kinship relationship? who are they? they are probably closely related.
+for (i in 1:nrow(kinship.EMMA)){
+    for (j in 1:ncol(kinship.EMMA)){
+      if (kinship.EMMA[i,j] >= 0.95 && kinship.EMMA[i,j] != 1){
+        output <- c(rownames(kinship.EMMA)[i], colnames(kinship.EMMA)[j])
+        print(output)
+      }
+    }
+}
 
 # which couple of lines have similarity above 0.98? comment regarding identification of redudant 
-# accessions of germplasm collection... refer to Romay et al. 2013 
+# accessions of germplasm collection... refer to Romay et al. 2013, none!!! 
 
 
 
