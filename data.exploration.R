@@ -53,13 +53,13 @@ dens(mising_taxa_6224$Proportion.Missing, col="red", lwd=2, add = F, xlab="missi
 # cluster & sub-cluster
 ######################
 # import data
-SNP_1st_cluster <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/MAF_call_rate_heterozygosity/6224_302.txt')
-SNP_2nd_cluster <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/MAF_call_rate_heterozygosity/64_6224.txt')
-two_hundred_and_three_accessions <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/MAF_call_rate_heterozygosity/203_6430.txt')
-seventy_seven_accessions <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/MAF_call_rate_heterozygosity/77_6430.txt')
-ten_accessions <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/MAF_call_rate_heterozygosity/10_5283.txt')
-forty_accessions <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/MAF_call_rate_heterozygosity/40_5283.txt')
-six_accessions <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/MAF_call_rate_heterozygosity/6_5283.txt')
+SNP_1st_cluster <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exploration/6224_302.txt')
+SNP_2nd_cluster <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exploration/64_6224.txt')
+two_hundred_and_three_accessions <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exploration//203_6430.txt')
+seventy_seven_accessions <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exploration/77_6430.txt')
+ten_accessions <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exploration/10_5283.txt')
+forty_accessions <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exploration/40_5283.txt')
+six_accessions <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exploration/6_5283.txt')
 
 ###################
 # call rate, MAF, & heterozygosity rate 
@@ -99,10 +99,14 @@ ten_accessions.heterozygosity<- ten_accessions$Proportion.Heterozygous
 forty_accessions.heterozygosity <- forty_accessions$Proportion.Heterozygous
 six_accessions.heterozygosity <- six_accessions$Proportion.Heterozygous
 
+
 # making plot
-dens(thirdSNP.MAF, col="black", xlab="Minor allele frequency", ylab="density", lwd=2)
-dens(SNP_1st_cluster.MAF, add = TRUE, col="green", lwd=2)
-dens(SNP_2nd_cluster.MAF, add = TRUE, col="red", lwd=2)
+par(mfrow=c(1,1))
+plot(density(thirdSNP.MAF), col="black", xlab="Minor allele frequency", ylab="density", lwd=2, main="", xlim=c(0,0.5), ylim=c(0,6))
+par(new=T)
+plot(density(SNP_1st_cluster.MAF), add = TRUE, col="green", lwd=2, main = "", xlab="", ylab="", xlim=c(0,0.5), ylim=c(0,6))
+par(new=T)
+plot(density(SNP_2nd_cluster.MAF), add = TRUE, col="red", lwd=2, main = "", xlab="", ylab="", xlim=c(0,0.5), ylim=c(0,6))
 
 # dens(two_hundred_and_three_accessions.MAF, col="blue")
 # dens(seventy_seven_accessions.MAF, add = TRUE, col="pink")
@@ -110,18 +114,28 @@ dens(SNP_2nd_cluster.MAF, add = TRUE, col="red", lwd=2)
 # dens(forty_accessions.MAF, add = TRUE, col="yellow2")
 # dens(six_accessions.MAF,col="purple4", add = TRUE)
 
-dens(thirdSNP.missingrate, ylim=c(0,25), col="black", xlab="missing rate", ylab="density", lwd=2)
-dens(SNP_1st_cluster.missingrate, add = TRUE, col="green", lwd=2)
-dens(SNP_2nd_cluster.missingrate,  col="red", add = T, lwd=2)
+# dens(thirdSNP.missingrate, ylim=c(0,25), xlim=c(0, 2), col="black", xlab="missing rate", ylab="density", lwd=2)
+# dens(SNP_1st_cluster.missingrate, add = TRUE, col="green", lwd=2)
+# dens(SNP_2nd_cluster.missingrate,  col="red", add = T, lwd=2)
+
+# How to overplay line plot? 
+plot(density(thirdSNP.missingrate), ylim=c(0,20), xlim=c(0,0.15), col="black", xlab="missing rate", ylab="density", lwd=2, main="")
+par(new=T)
+plot(density(SNP_1st_cluster.missingrate), add = TRUE, col="green", lwd=2,  ylim=c(0,20), xlim=c(0,0.15), xlab="", ylab="", main="")
+par(new=T)
+plot(density(SNP_2nd_cluster.missingrate), col="red", add = T, lwd=2,  ylim=c(0,20), xlim=c(0,0.15), xlab="", ylab="", main="")
+
 # hist(two_hundred_and_three_accessions.missingrate)
 # hist(seventy_seven_accessions.missingrate)
 # hist(ten_accessions.missingrate)
 # hist(forty_accessions.missingrate)
 # hist(six_accessions.missingrate)
 
-dens(thirdSNP.heterozygosity, col="black", xlab="heterozygosity", ylab="density", lwd=2, ylim=c(0,90))
-dens(SNP_1st_cluster.heterozygosity, add = TRUE, col="green", lwd=2)  
-dens(SNP_2nd_cluster.heterozygosity, col="red", add = T, lwd=2)
+plot(density(thirdSNP.heterozygosity), col="black", xlab="heterozygosity", ylab="density", lwd=2, ylim=c(0,50), xlim=c(0,0.2), main = "")
+par(new=T)
+plot(density(SNP_1st_cluster.heterozygosity), add = TRUE, col="green", lwd=2, ylim=c(0,50), xlim=c(0,0.2), main = "", xlab="", ylab="")  
+par(new=T)
+plot(density(SNP_2nd_cluster.heterozygosity), col="red", add = T, lwd=2, xlab="", ylab="",ylim=c(0,50), xlim=c(0,0.2), main="")
 # hist(two_hundred_and_three_accessions.heterozygosity)
 # hist(seventy_seven_accessions.heterozygosity)
 # hist(ten_accessions.heterozygosity)
@@ -132,10 +146,6 @@ dens(SNP_2nd_cluster.heterozygosity, col="red", add = T, lwd=2)
 mising_taxa_6224 <- read.delim("~/Desktop/GBS_manuscript/revise/6224_taxa.txt")
 par(mfrow=c(1,2))
 dens(thirdSNP.missingrate, col="red", lwd=2, xlab="missing rate at locus level", ylab=NA)
-
-
-
-
 
 
 
