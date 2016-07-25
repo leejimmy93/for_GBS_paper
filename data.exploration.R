@@ -10,6 +10,7 @@ secondSNP <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exp
 thirdSNP <- read.delim('/Users/ruijuanli/Desktop/GBS_manuscript/revise/data_exploration//raw_SNP_hapmap_data/6224.txt')
 mising_taxa_6224 <- read.delim("/Users/ruijuanli/Desktop/GBS_manuscript/revise/6224_taxa.txt")
 head(firstSNP)
+head(thirdSNP)
 
 ###################
 # call rate, MAF, & heterozygosity rate for each accession at each step of SNP filtering
@@ -146,8 +147,75 @@ plot(density(SNP_2nd_cluster.heterozygosity), col="red", add = T, lwd=2, xlab=""
 mising_taxa_6224 <- read.delim("~/Desktop/GBS_manuscript/revise/6224_taxa.txt")
 par(mfrow=c(1,2))
 dens(thirdSNP.missingrate, col="red", lwd=2, xlab="missing rate at locus level", ylab=NA)
+## 1) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_288624596"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_288624596"]
+# 2 55535625 
 
+## 2) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_363837409"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_363837409"]
+# 5 29725879 
 
+## 3) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_391376633"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_391376633"]
+# 5 57265103 
+
+## 4) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_391376844"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_391376844"]
+# 5 57265314
+
+## 5) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_192511683"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_192511683"]
+# 8 86812868 
+
+## 6) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_1408491264"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_1408491264"] 
+# 9 94394274 
+
+## 7) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_1408491302"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_1408491302"]
+# 9 94394312 
+
+## 8) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_1408644348"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_1408644348"]
+# 9 94547358 
+
+## 9) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_1408644903"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_1408644903"]
+# 9 94547913 
+
+## 10) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_1408654014"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_1408654014"]
+# 9 94557024 
+
+## 11) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_1164564653"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_1164564653"]
+# 10 68088169 
+
+## 12) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_72918909"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_72918909"]
+# 10 68088169 
+
+## 13) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_577789580"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_577789580"]
+# 12 36862750 
+
+## 14) 
+thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_634876429"]
+thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_634876429"]
+# 12 93949599 
 
 
 
