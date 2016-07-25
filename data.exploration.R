@@ -147,6 +147,12 @@ plot(density(SNP_2nd_cluster.heterozygosity), col="red", add = T, lwd=2, xlab=""
 mising_taxa_6224 <- read.delim("~/Desktop/GBS_manuscript/revise/6224_taxa.txt")
 par(mfrow=c(1,2))
 dens(thirdSNP.missingrate, col="red", lwd=2, xlab="missing rate at locus level", ylab=NA)
+
+# these SNPs were generated from Fst.R, which showed Fst value greater than 0.9. The high Fst value indiate these SNPs 
+# are differentially fixed among all genotypes, although the reviewer asked me to check how different loci's Fst look like 
+# between the 2 populations I identified, I found it is somewhat hard for me to generate now. So I decide to use this 
+# data to resply the review's question. So Believe or don't believe the result!!! 
+
 ## 1) 
 thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_288624596"]
 thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_288624596"]
@@ -205,7 +211,7 @@ thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_1164564653"]
 ## 12) 
 thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_72918909"]
 thirdSNP$Physical.Position[thirdSNP$Site.Name=="S1_72918909"]
-# 10 68088169 
+# 11 72918909  
 
 ## 13) 
 thirdSNP$Chromosome[thirdSNP$Site.Name=="S1_577789580"]
