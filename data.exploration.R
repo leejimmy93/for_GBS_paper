@@ -23,6 +23,8 @@ summary(firstSNP.MAF)
 summary(secondSNP.MAF)
 summary(thirdSNP.MAF)
 
+sum(secondSNP.MAF<0.05)/length(secondSNP.MAF)
+
 # missing rate
 firstSNP.missingrate <- firstSNP$Proportion.Missing
 secondSNP.missingrate <- secondSNP$Proportion.Missing
@@ -32,6 +34,8 @@ thirdSNP.missingrate <- thirdSNP$Proportion.Missing
 firstSNP.heterozygosity <- firstSNP$Proportion.Heterozygous
 secondSNP.heterozygosity <- secondSNP$Proportion.Heterozygous
 thirdSNP.heterozygosity <- thirdSNP$Proportion.Heterozygous
+
+sum(secondSNP.heterozygosity>0.2)
 
 # making plot
 par(mfrow=c(2,2))
